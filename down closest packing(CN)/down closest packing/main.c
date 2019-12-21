@@ -1,7 +1,7 @@
 //
 //  main.c
 //  down closest packing
-//  ver: beta-0.1
+//  Ver: beta-0.12(CN)
 //  Created by God's face on 2019/12/18.
 //  Copyright © 2019 God's face. All rights reserved.
 //
@@ -47,8 +47,13 @@ int videobit(int* map,int longbit,int longheight){
     for (i=0; i<=longbit; i++) {
         h++;
         p=map[i];
-        if (h==longheight) {
-            printf("%d",p);
+        if (h==longheight) {        //我知道这段很糟糕 :)
+            if (p==1) {
+                printf("+");
+            }
+            else{
+                printf(" ");
+            }
             printf("\n");
             h=0;
         }
@@ -57,7 +62,7 @@ int videobit(int* map,int longbit,int longheight){
             printf(" ");
         }
         else{
-            printf("%d",p);
+            printf("+");
         }
     }
     return 0;
@@ -70,8 +75,6 @@ int* meson(int* broken,int longbit,int widebit){
     newmap=broken;
     for (maplong=longbit; maplong>0; maplong--) {
         if (newmap[maplong]==0) {
-            
-            
             for (n=maplong-widebit; n>0; n=n-widebit) {
                 if (newmap[n]==1) {
                     newmap[maplong]=1;
